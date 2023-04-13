@@ -1,6 +1,6 @@
 FROM python:3.8
 
-WORKDIR /newapp
+WORKDIR /app
 
 COPY requirements.txt requirements.txt
 COPY dev-requirements.txt dev-requirements.txt
