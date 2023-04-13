@@ -9,6 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+     env:
+      MY_ENV_VAR: "dev"
+      POSTGRES_PORT:  ${{ secrets.POSTGRES_PORT }}
+      POSTGRES_HOST:  ${{ secrets.POSTGRES_HOST }}
+      POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DRIVER: ${{ secrets.POSTGRES_DRIVER }}
+      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+      EMAIL: ${{ secrets.EMAIL }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      SECRET_KEY_FOR_PASSWORD_RESET: ${{ secrets.SECRET_KEY_FOR_PASSWORD_RESET }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
