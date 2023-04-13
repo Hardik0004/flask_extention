@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-     env:
+    env:
       MY_ENV_VAR: "dev"
       POSTGRES_PORT:  ${{ secrets.POSTGRES_PORT }}
       POSTGRES_HOST:  ${{ secrets.POSTGRES_HOST }}
