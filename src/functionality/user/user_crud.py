@@ -145,6 +145,7 @@ def send_forget_password_link():
 
 
 def reset_password():
+    app.logger.info("Functionality: reset password")
     token = request.json.get("token")
     password = request.json.get("password")
 

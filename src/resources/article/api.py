@@ -7,13 +7,13 @@ from src.functionality.article.article_crud import (
     delete_articles,
     get_articles,
     get_articles_for_user,
+    get_save_article_user,
     get_share,
     get_watch,
     increment_share,
     increment_watch,
     post_article_info,
     save_article,
-    save_article_user,
     update_articles,
 )
 from src.functionality.article.serializer import articles_info_data
@@ -97,5 +97,5 @@ def saved_article():
 @articles.route("/saved", methods=["GET"])
 def saved_article_user():
     app.logger.info("API: user saved article")
-    articles = save_article_user()
+    articles = get_save_article_user()
     return (jsonify(share=articles), status.HTTP_200_OK)
