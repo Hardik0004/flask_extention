@@ -8,8 +8,11 @@ from flask_api import status
 from sqlalchemy import false, true
 
 from database import db
-from src.functionality.article.serializer import articles_info_post_data
-from src.resources.article.model import Article
+from src.functionality.article.serializer import (
+    articles_info_post_data,
+    saved_article_data,
+    articles_info_data)
+from src.resources.article.model import Article, SavedArticle
 from src.utils.exception import MuzliException
 from src.utils.validator import authenticated, authenticated_user
 
@@ -132,29 +135,101 @@ def delete_articles():
 
 @authenticated
 def increment_share():
-    req_data: dict = request.json
-    id = req_data.get("id")
+    id = request.args.get("article_id")
     article = Article.query.filter(
-        Article.id == id, Article.is_deleted == false()
+        Article.id == id, Article.is_deleted == false(),
+        Article.is_active == true()
     ).first()
 
     if not article:
         raise MuzliException(status.HTTP_404_NOT_FOUND, "Article not found")
     article.share += 1
     db.session.commit()
+    article_share= article.share
     db.session.close()
+
+    return article_share
 
 
 @authenticated
 def increment_watch():
-    req_data: dict = request.json
-    id = req_data.get("id")
+    id = request.args.get("article_id")
     article = Article.query.filter(
-        Article.id == id, Article.is_deleted == false()
+        Article.id == id, Article.is_deleted == false(),
+        Article.is_active ==true()
     ).first()
 
     if not article:
         raise MuzliException(status.HTTP_404_NOT_FOUND, "Article not found")
     article.watch += 1
     db.session.commit()
+    article_watch= article.watch
     db.session.close()
+
+    return article_watch
+
+
+@authenticated
+def get_share():
+    id = request.args.get("article_id")
+    article = Article.query.filter(
+        Article.id == id, Article.is_deleted == false(),
+        Article.is_active == true()
+    ).first()
+
+    if not article:
+        raise MuzliException(status.HTTP_404_NOT_FOUND, "Article not found")
+
+    article_share= article.share
+    db.session.close()
+
+    return article_share
+
+
+@authenticated
+def get_watch():
+    id = request.args.get("article_id")
+    article = Article.query.filter(
+        Article.id == id, Article.is_deleted == false(),
+        Article.is_active ==true()
+    ).first()
+
+    if not article:
+        raise MuzliException(status.HTTP_404_NOT_FOUND, "Article not found")
+    article_watch= article.watch
+    db.session.close()
+
+    return article_watch
+
+
+@authenticated_user
+def save_article():
+    user_id = g.user.user_id
+    req_data: dict = request.json
+    article_id = req_data.get("article_id")
+
+    article_info=Article.query.filter(
+        Article.id == article_id, Article.is_deleted == false(),
+        Article.is_active ==true()
+    ).first()
+    article_info = articles_info_data(article_info)
+    saved_article = SavedArticle(
+        user_id=user_id,
+        article_info= article_info,
+        )
+    
+    db.session.add(saved_article)
+    db.session.commit()
+    db.session.close()
+    return "Article Save Successfully"
+
+
+@authenticated_user
+def save_article_user():
+    user_id = g.user.user_id
+    saved_article_info = SavedArticle.query.filter(SavedArticle.user_id==user_id).all()
+    saved_article = saved_article_data(saved_article_info)
+
+    db.session.close()
+
+    return saved_article

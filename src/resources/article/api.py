@@ -9,6 +9,12 @@ from src.functionality.article.article_crud import (
     get_articles_for_user,
     post_article_info,
     update_articles,
+    increment_share,
+    increment_watch,
+    get_share,
+    get_watch,
+    save_article,
+    save_article_user
 )
 from src.functionality.article.serializer import articles_info_data
 
@@ -51,3 +57,44 @@ def delete_article():
     app.logger.info("API: delete article")
     articles = delete_articles()
     return (jsonify(message=articles), status.HTTP_204_NO_CONTENT)
+
+
+@articles.route("/watch", methods=["POST"])
+def watch_article():
+    app.logger.info("API: increase watch of article")
+    articles = increment_watch()
+    return ( jsonify(watch=articles), status.HTTP_200_OK)
+
+
+@articles.route("/share", methods=["POST"])
+def share_article():
+    app.logger.info("API:  increase share of article")
+    articles = increment_share()
+    return ( jsonify(share= articles), status.HTTP_200_OK)
+
+@articles.route("/watch", methods=["GET"])
+def views_article():
+    app.logger.info("API: get watch of article")
+    articles =  get_watch()
+    return ( jsonify(watch= articles), status.HTTP_200_OK)
+
+
+@articles.route("/share", methods=["GET"])
+def spread_article():
+    app.logger.info("API:  get share of article")
+    articles =  get_share()
+    return ( jsonify(share= articles), status.HTTP_200_OK)
+
+
+@articles.route("/saved", methods=["POST"])
+def saved_article():
+    app.logger.info("API:  save of article")
+    articles =  save_article()
+    return ( jsonify(message=articles), status.HTTP_200_OK)
+
+
+@articles.route("/saved", methods=["GET"])
+def saved_article_user():
+    app.logger.info("API: user saved article")
+    articles =  save_article_user()
+    return ( jsonify(share= articles), status.HTTP_200_OK)

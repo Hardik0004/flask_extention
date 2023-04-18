@@ -11,6 +11,7 @@ from sqlalchemy import (
     Integer,
     PrimaryKeyConstraint,
     String,
+    JSON
 )
 from sqlalchemy.orm import relationship
 
@@ -46,11 +47,10 @@ class SavedArticle(db.Model):
     __tablename__ = "saved_article"
     __table_args__ = (PrimaryKeyConstraint("id", "user_id"),)
     id = Column(String(36), primary_key=True, default=uuid_default)
-    article_id = Column(String(36), ForeignKey("article.id"))
+    article_info = Column(JSON)
     user_id = Column(String(36), ForeignKey("user_info.id"))
     created_on = Column(DateTime, nullable=False, default=datetime.utcnow)
     modified_on = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    article = relationship("Article")
 
     user = relationship("UserInfo")
