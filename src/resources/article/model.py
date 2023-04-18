@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import (
+    JSON,
     Boolean,
     Column,
     DateTime,
@@ -11,7 +12,6 @@ from sqlalchemy import (
     Integer,
     PrimaryKeyConstraint,
     String,
-    JSON
 )
 from sqlalchemy.orm import relationship
 
@@ -51,6 +51,5 @@ class SavedArticle(db.Model):
     user_id = Column(String(36), ForeignKey("user_info.id"))
     created_on = Column(DateTime, nullable=False, default=datetime.utcnow)
     modified_on = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
 
     user = relationship("UserInfo")
