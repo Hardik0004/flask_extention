@@ -136,6 +136,7 @@ def delete_articles():
 
 @authenticated
 def increment_share():
+    app.logger.info("Functionality: share")
     id = request.args.get("article_id")
     article = Article.query.filter(
         Article.id == id, Article.is_deleted == false(), Article.is_active == true()
@@ -153,6 +154,7 @@ def increment_share():
 
 @authenticated
 def increment_watch():
+    app.logger.info("Functionality: watch")
     id = request.args.get("article_id")
     article = Article.query.filter(
         Article.id == id, Article.is_deleted == false(), Article.is_active == true()
@@ -170,6 +172,7 @@ def increment_watch():
 
 @authenticated
 def get_share():
+    app.logger.info("Functionality: get share")
     id = request.args.get("article_id")
     article = Article.query.filter(
         Article.id == id, Article.is_deleted == false(), Article.is_active == true()
@@ -186,6 +189,7 @@ def get_share():
 
 @authenticated
 def get_watch():
+    app.logger.info("Functionality: get watch")
     id = request.args.get("article_id")
     article = Article.query.filter(
         Article.id == id, Article.is_deleted == false(), Article.is_active == true()
@@ -201,6 +205,7 @@ def get_watch():
 
 @authenticated_user
 def save_article():
+    app.logger.info("Functionality: save article")
     user_id = g.user.user_id
     req_data: dict = request.json
     article_id = req_data.get("article_id")
@@ -223,7 +228,8 @@ def save_article():
 
 
 @authenticated_user
-def save_article_user():
+def get_save_article_user():
+    app.logger.info("Functionality: get saved article for user")
     user_id = g.user.user_id
     saved_article_info = SavedArticle.query.filter(
         SavedArticle.user_id == user_id
