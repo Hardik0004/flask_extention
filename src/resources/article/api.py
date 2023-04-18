@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import current_app as app
-from flask import jsonify
+from flask import jsonify, request
 from flask_api import status
 
 from src.functionality.article.article_crud import (
@@ -61,41 +61,35 @@ def delete_article():
 
 @articles.route("/watch", methods=["POST"])
 def watch_article():
-    app.logger.info("API: increase watch of article")
-    articles = increment_watch()
-    return (jsonify(watch=articles), status.HTTP_200_OK)
+    if request.method == "POST":
+        app.logger.info("API: increase watch of article")
+        articles = increment_watch()
+        return (jsonify(watch=articles), status.HTTP_200_OK)
+
+    elif request.method == "GET":
+        app.logger.info("API: get watch of article")
+        articles = get_watch()
+        return (jsonify(watch=articles), status.HTTP_200_OK)
 
 
 @articles.route("/share", methods=["POST"])
 def share_article():
-    app.logger.info("API:  increase share of article")
-    articles = increment_share()
-    return (jsonify(share=articles), status.HTTP_200_OK)
-
-
-@articles.route("/watch", methods=["GET"])
-def views_article():
-    app.logger.info("API: get watch of article")
-    articles = get_watch()
-    return (jsonify(watch=articles), status.HTTP_200_OK)
-
-
-@articles.route("/share", methods=["GET"])
-def spread_article():
-    app.logger.info("API:  get share of article")
-    articles = get_share()
-    return (jsonify(share=articles), status.HTTP_200_OK)
-
+    if request.method == "POST":
+        app.logger.info("API:  increase share of article")
+        articles = increment_share()
+        return (jsonify(share=articles), status.HTTP_200_OK)
+    elif request.method == "GET":
+        app.logger.info("API:  get share of article")
+        articles = get_share()
+        return (jsonify(share=articles), status.HTTP_200_OK)
 
 @articles.route("/saved", methods=["POST"])
 def saved_article():
-    app.logger.info("API:  save of article")
-    articles = save_article()
-    return (jsonify(message=articles), status.HTTP_200_OK)
-
-
-@articles.route("/saved", methods=["GET"])
-def saved_article_user():
-    app.logger.info("API: user saved article")
-    articles = get_save_article_user()
-    return (jsonify(share=articles), status.HTTP_200_OK)
+    if request.method == "POST":
+        app.logger.info("API:  save of article")
+        articles = save_article()
+        return (jsonify(message=articles), status.HTTP_200_OK)
+    elif request.method == "GET":
+        app.logger.info("API: user saved article")
+        articles = get_save_article_user()
+        return (jsonify(share=articles), status.HTTP_200_OK)

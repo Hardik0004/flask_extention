@@ -1,0 +1,1003 @@
+{
+	"info": {
+		"_postman_id": "f58952aa-b855-4fb6-a3e9-64e13a81c8ab",
+		"name": "Flask_extension",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26113697"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"Hardik\",\r\n    \"email_id\": \"hardikpate@yopmail.com\",\r\n    \"password\" : \"Hardik@7498\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/signup",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_name\": \"Hardik\",\r\n    \"email_id\": \"hardikpate@yopmail.com\",\r\n    \"password\" : \"Hardik@7498\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}user/signup",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"Hardik\",\r\n    \"password\": \"Hardik@7498\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/user/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_name\": \"Hardik\",\r\n    \"password\": \"Hardik@7498\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/user/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "froget_password_link",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/forget_password?user_name=Hardikpatel",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"forget_password"
+							],
+							"query": [
+								{
+									"key": "user_name",
+									"value": "Hardikpatel"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "froget_password_link",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}user/forget_password?user_name=Hardikpatel",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"forget_password"
+									],
+									"query": [
+										{
+											"key": "user_name",
+											"value": "Hardikpatel"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "reset_password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJ1c2VyX2lkIjoiODQ5NTFmODMtN2E3NS00YTdiLTllZjMtNWUyYTk0NGRjOTk1IiwiZXhwaXJlc19pbiI6IjIwMjMtMDQtMTVUMTM6MzE6MzdaIn0.ZDqZKQ.xqqzPoOaRk9bqgW6Gm9q5txkwcU\",\r\n    \"password\": \"mynameishardik\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/reset_password",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"reset_password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reset_password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJ1c2VyX2lkIjoiODQ5NTFmODMtN2E3NS00YTdiLTllZjMtNWUyYTk0NGRjOTk1IiwiZXhwaXJlc19pbiI6IjIwMjMtMDQtMTVUMTM6MzE6MzdaIn0.ZDqZKQ.xqqzPoOaRk9bqgW6Gm9q5txkwcU\",\r\n    \"password\": \"mynameishardik\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}user/reset_password",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"reset_password"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "article post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4Nzk2MTZ9.t7eC_FZmNSW7xcI7XXfa_uLw43eLwsCtTcjcCqgCBUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article_link\": \"https://www.macrumors.com/2023/04/12/apple-card-savings-account-coming-soon/?utm_source=extension&utm_medium=click&utm_campaign=muzli\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/article/publish",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"publish"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "article post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4Nzk2MTZ9.t7eC_FZmNSW7xcI7XXfa_uLw43eLwsCtTcjcCqgCBUM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"article_link\": \"https://www.macrumors.com/2023/04/12/apple-card-savings-account-coming-soon/?utm_source=extension&utm_medium=click&utm_campaign=muzli\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/article/publish",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"publish"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4Nzk2MTZ9.t7eC_FZmNSW7xcI7XXfa_uLw43eLwsCtTcjcCqgCBUM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4Nzk2MTZ9.t7eC_FZmNSW7xcI7XXfa_uLw43eLwsCtTcjcCqgCBUM",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"user"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZjE5YjBiMGQtZTI3Yi00NmE2LWEwZGQtMTA5OTBjMmJmYjMzIiwiZXhwIjoxNjgxMjkzMjcyfQ.mPI0XXJDz29waLbsd68wDzWA9BRmqt0K0i5VT1ro9MU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZjE5YjBiMGQtZTI3Yi00NmE2LWEwZGQtMTA5OTBjMmJmYjMzIiwiZXhwIjoxNjgxMjkzMjcyfQ.mPI0XXJDz29waLbsd68wDzWA9BRmqt0K0i5VT1ro9MU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "article",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZjE5YjBiMGQtZTI3Yi00NmE2LWEwZGQtMTA5OTBjMmJmYjMzIiwiZXhwIjoxNjgxMjkzMjcyfQ.mPI0XXJDz29waLbsd68wDzWA9BRmqt0K0i5VT1ro9MU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"24e9dee4-8f1e-40c2-a163-ded46d154606\",\r\n    \"category\": \"Business\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/article/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "article",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZjE5YjBiMGQtZTI3Yi00NmE2LWEwZGQtMTA5OTBjMmJmYjMzIiwiZXhwIjoxNjgxMjkzMjcyfQ.mPI0XXJDz29waLbsd68wDzWA9BRmqt0K0i5VT1ro9MU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"24e9dee4-8f1e-40c2-a163-ded46d154606\",\r\n    \"category\": \"Business\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/article/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "article",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtfNzQ5OCIsInVzZXJfaWQiOiIwNDVlOTZmMC02Njk4LTQ4NWQtOGFhMy00NjE2YWMzN2U2MmEiLCJleHAiOjE2ODEyOTI2ODd9.DH0u-mlV4QtSKBmoPEArWYjQTHd_60vWjAp5nf0ylOY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"b1d5da33-d490-42ee-af27-658c549d90a6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/article",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "article",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtfNzQ5OCIsInVzZXJfaWQiOiIwNDVlOTZmMC02Njk4LTQ4NWQtOGFhMy00NjE2YWMzN2U2MmEiLCJleHAiOjE2ODEyOTI2ODd9.DH0u-mlV4QtSKBmoPEArWYjQTHd_60vWjAp5nf0ylOY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"b1d5da33-d490-42ee-af27-658c549d90a6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/article",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "watch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/watch?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"watch"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "watch",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/watch?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"watch"
+									],
+									"query": [
+										{
+											"key": "article_id",
+											"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "watch",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/watch?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"watch"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "watch",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/watch?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"watch"
+									],
+									"query": [
+										{
+											"key": "article_id",
+											"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "share",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/share?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"share"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "share",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/share?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"share"
+									],
+									"query": [
+										{
+											"key": "article_id",
+											"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "share",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/article/share?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"share"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "share",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWtwYXRlbCIsInVzZXJfaWQiOiI3MDM5NjFiZC01ZDgzLTQzY2YtYThhZi1hM2QyYTRhYTFjYmYiLCJleHAiOjE2ODE4ODE4NzN9.q93hkmjNRJ91695t_Dlum6jx_4su28c-dBSmvfjg3u8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/article/share?article_id=0801ba2e-3b6d-4fb2-9cee-47c291932034",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"share"
+									],
+									"query": [
+										{
+											"key": "article_id",
+											"value": "0801ba2e-3b6d-4fb2-9cee-47c291932034"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Saved article",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZTY2YTAwMWYtYmUzMC00Y2EzLTk5ZjktYmUyOThjNDJhNmRmIiwiZXhwIjoxNjgxODg0OTExfQ.YUHeGc300GmHTgVbd4I7ssdl1SjK4Ladw0jMOMWwUcI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article_id\": \"0801ba2e-3b6d-4fb2-9cee-47c291932034\",\r\n    \"user_id\": \"703961bd-5d83-43cf-a8af-a3d2a4aa1cbf\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/article/saved",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"saved"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "save",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZTY2YTAwMWYtYmUzMC00Y2EzLTk5ZjktYmUyOThjNDJhNmRmIiwiZXhwIjoxNjgxODg0OTExfQ.YUHeGc300GmHTgVbd4I7ssdl1SjK4Ladw0jMOMWwUcI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"article_id\": \"0801ba2e-3b6d-4fb2-9cee-47c291932034\",\r\n    \"user_id\": \"703961bd-5d83-43cf-a8af-a3d2a4aa1cbf\"\r\n}   ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/article/saved",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"saved"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"Article Save Successfully\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "save",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZTY2YTAwMWYtYmUzMC00Y2EzLTk5ZjktYmUyOThjNDJhNmRmIiwiZXhwIjoxNjgxODg0OTExfQ.YUHeGc300GmHTgVbd4I7ssdl1SjK4Ladw0jMOMWwUcI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/article/saved?user_id=703961bd-5d83-43cf-a8af-a3d2a4aa1cbf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"article",
+								"saved"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "703961bd-5d83-43cf-a8af-a3d2a4aa1cbf"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "save",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJIYXJkaWsiLCJ1c2VyX2lkIjoiZTY2YTAwMWYtYmUzMC00Y2EzLTk5ZjktYmUyOThjNDJhNmRmIiwiZXhwIjoxNjgxODg0OTExfQ.YUHeGc300GmHTgVbd4I7ssdl1SjK4Ladw0jMOMWwUcI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/article/saved?user_id=703961bd-5d83-43cf-a8af-a3d2a4aa1cbf",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"article",
+										"saved"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "703961bd-5d83-43cf-a8af-a3d2a4aa1cbf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"share\": [\r\n        {\r\n            \"article_info\": [\r\n                {\r\n                    \"article_id\": \"0801ba2e-3b6d-4fb2-9cee-47c291932034\",\r\n                    \"article_link\": \"https://www.macrumors.com/2023/04/12/apple-card-savings-account-coming-soon/\",\r\n                    \"category\": \"General\",\r\n                    \"image_link\": \"https://images.macrumors.com/t/0w71dZrBENUC1U70nbET7x7Y638=/1600x/article-new/2023/04/apple-card-savings-account.jpg\",\r\n                    \"share\": 1,\r\n                    \"user_id\": \"703961bd-5d83-43cf-a8af-a3d2a4aa1cbf\",\r\n                    \"watch\": 1,\r\n                    \"website_name\": \"MacRumors\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
